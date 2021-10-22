@@ -1,17 +1,13 @@
-# The minimum required config options for loading from local source
 {
   "input": {
-    "type": "Local"
-    "path": "/tmp/example"
-  }
+    "path": "/var/enriched/"
+  },
 
   "output" : {
     "good": {
-      "host": "localhost"
-      "database": "snowplow"
-      "username": "postgres"
-      "password": ${POSTGRES_PASSWORD}
-      "schema": "atomic"
+      "host": "localhost",
+      "database": "tutorial",
+      "port": 8123
     }
   }
 }

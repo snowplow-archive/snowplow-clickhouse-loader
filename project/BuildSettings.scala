@@ -27,13 +27,9 @@ import com.typesafe.sbt.packager.docker.DockerPlugin.autoImport._
 import scoverage.ScoverageKeys._
 
 object BuildSettings {
-  val scala212 = "2.12.11"
-  val scala213 = "2.13.3"
-
   lazy val projectSettings = Seq(
     organization := "com.snowplowanalytics",
-    scalaVersion := scala213,
-    crossScalaVersions := Seq(scala212, scala213),
+    scalaVersion := "2.13.6",
     description := "Loading Snowplow enriched data into ClickHouse in real-time",
     licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0.html")),
     Test / parallelExecution := false

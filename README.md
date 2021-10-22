@@ -9,16 +9,40 @@
 
 Assuming [Docker][docker] is installed:
 
-1. Add own `config.hocon` to specify connection and stream details, using [the examples][config] as a guide and [the docs site][config-docs] as a reference.
-2. Add own [`resolver.json`][resolver] (all schemas must be on [Iglu Server 0.6.0+][iglu-server])
-3. Run the Docker image:
+1. Run the ClickHouse server
 
-```bash
-$ docker run --rm -v $PWD/config:/snowplow/config \
-    snowplow/snowplow-clickhouse-loader:latest \
-    --resolver /snowplow/config/resolver.json \
-    --config /snowplow/config/config.hocon
 ```
+$ docker run -d -p 8123:8123 \
+    --name some-clickhouse-server \
+    --ulimit nofile=262144:262144 \
+    --volume=$HOME/clickhouse_db_vol:/var/lib/clickhouse yandex/clickhouse-server
+```
+
+2. Start the client shell:
+
+```
+$ docker run -it \
+    --rm \
+    --link some-clickhouse-server:clickhouse-server yandex/clickhouse-client \
+    --host clickhouse-server
+```
+
+3. Make sure your database is created (`tutorial` in this example).
+   You can keep working in this session to check the loaded data:
+
+```
+:) CREATE DATBASE IF NOT EXISTS tutorial
+:) USE tutorial
+```
+
+4. Run the Loader (config implies `tutoral` DB and some enriched data on local FS):
+
+```
+$ sbt
+> run --config config/config.local.minimal.hocon --resolver config/resolver.json
+```
+
+It will automatically load the data from your local filesystem in batches of 1000 (configurable in the code)
 
 ## Copyright and License
 

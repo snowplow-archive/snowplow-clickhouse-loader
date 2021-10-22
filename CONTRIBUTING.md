@@ -45,7 +45,7 @@ If you see an issue you would like to work on, please let us know in the issue! 
 not doubling the amount of work.
 
 If you don't know where to start contributing, you can look at
-[the issues labeled `good first issue`](https://github.com/snowplow-incubator/snowplow-postgres-loader/labels/good%20first%20issue).
+[the issues labeled `good first issue`](https://github.com/snowplow-incubator/snowplow-clickhouse-loader/labels/good%20first%20issue).
 
 ## Pull requests
 

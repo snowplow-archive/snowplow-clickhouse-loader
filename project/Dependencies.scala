@@ -17,7 +17,6 @@ object Dependencies {
 
   object V {
     // Java
-    val postgres     = "42.2.23"
     val commons      = "1.15"
     val logback      = "1.2.5"
 
@@ -28,6 +27,7 @@ object Dependencies {
     val circeConfig  = "0.8.0"
     val fs2Aws       = "3.1.1"
     val fs2PubSub    = "0.17.0"
+    val http4s       = "0.21.31"
     val doobie       = "0.13.4"
     val fs2          = "2.5.9"
     val log4s        = "1.10.0"
@@ -50,7 +50,6 @@ object Dependencies {
   val config        = "com.typesafe"   % "config"                 % V.config
 
   // Snyk warnings
-  val postgres      = "org.postgresql" % "postgresql"             % V.postgres
   val commons       = "commons-codec"  % "commons-codec"          % V.commons
 
   // Scala third-party
@@ -64,21 +63,17 @@ object Dependencies {
   val circeParser   = "io.circe"                 %% "circe-parser"           % V.circe
   val circeConfig   = "io.circe"                 %% "circe-config"           % V.circeConfig
   val circeLiteral  = "io.circe"                 %% "circe-literal"          % V.circe
-  val fs2Aws        = "io.laserdisc"             %% "fs2-aws"                % V.fs2Aws
-  val fs2PubSub     = "com.permutive"            %% "fs2-google-pubsub-grpc" % V.fs2PubSub
   val doobie        = "org.tpolecat"             %% "doobie-core"            % V.doobie
-  val doobiePg      = "org.tpolecat"             %% "doobie-postgres"        % V.doobie
-  val doobiePgCirce = "org.tpolecat"             %% "doobie-postgres-circe"  % V.doobie
-  val doobieHikari  = "org.tpolecat"             %% "doobie-hikari"          % V.doobie
   val log4s         = "org.log4s"                %% "log4s"                  % V.log4s
   val fs2BlobCore   = "com.github.fs2-blobstore" %% "core"                   % V.fs2BlobCore
-  val catsRetry     = "com.github.cb372"         %% "cats-retry"             % V.catsRetry
+  val http4s        = "org.http4s"               %% "http4s-blaze-client"    % V.http4s
 
   // Scala first-party
   val analyticsSdk = "com.snowplowanalytics" %% "snowplow-scala-analytics-sdk" % V.analyticsSdk
   val badRows      = "com.snowplowanalytics" %% "snowplow-badrows"             % V.badRows
   val schemaDdl    = "com.snowplowanalytics" %% "schema-ddl"                   % V.schemaDdl
   val igluClient   = "com.snowplowanalytics" %% "iglu-scala-client"            % V.igluClient
+  val igluClient4s = "com.snowplowanalytics" %% "iglu-scala-client-http4s"     % V.igluClient
 
   // Testing
   val specs2       = "org.specs2"     %% "specs2-core"       % V.specs2     % Test

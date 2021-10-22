@@ -21,7 +21,6 @@ lazy val root = project.in(file("."))
   .settings(BuildSettings.scoverageSettings)
   .settings(
     libraryDependencies ++= Seq(
-      Dependencies.postgres,
       Dependencies.catsEffect,
       Dependencies.circe,
       Dependencies.circeGeneric,
@@ -29,17 +28,14 @@ lazy val root = project.in(file("."))
       Dependencies.circeParser,
       Dependencies.circeConfig,
       Dependencies.circeLiteral,
-      Dependencies.doobie,
-      Dependencies.doobiePg,
-      Dependencies.doobiePgCirce,
-      Dependencies.doobieHikari,
       Dependencies.log4s,
       Dependencies.logback,
-      Dependencies.catsRetry,
+      Dependencies.http4s,
       Dependencies.analyticsSdk,
       Dependencies.badRows,
       Dependencies.schemaDdl,
       Dependencies.igluClient,
+      Dependencies.igluClient4s,
       Dependencies.fs2BlobCore,
       Dependencies.decline,
       Dependencies.config,
